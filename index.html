@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olanrewaju - Profile Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .profile-picture {
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .profile-info {
+            text-align: center;
+        }
+
+        .full-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .location, .email {
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .time {
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .profile-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <img data-testid="profilePicture" src="https://wsrv.nl/?url=https://monyasau.github.io/portfolioAim/assets/passport.jpg&w=300" alt="my Profile Picture" class="profile-picture">
+        
+        <div class="profile-info">
+            <h1 data-testid="fullName" class="full-name">Olanrewaju Olajide Monyasau</h1>
+            <p data-testid="jobTitle" class="job-title">Frontend Developer</p>
+            
+            <p data-testid="shortBio" class="bio">
+                I'm a passionate frontend developer with interest in creating beautiful and functional user interfaces. Currently participating in the HNG internship to enhance my skills and collaborate with other developers.
+            </p>
+            
+            <p data-testid="currentLocation" class="location">
+                Lagos, Nigeria
+            </p>
+            
+            <p data-testid="emailAddress" class="email">
+                olajideOlanre@gmail.com
+            </p>
+            
+            <div data-testid="socialLinks" class="social-links">
+                <a href="https://github.com/monyasau" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/monyasau" target="_blank">LinkedIn</a>
+            </div>
+            
+            <p data-testid="currentTimeUTC" class="time"></p>
+        </div>
+    </div>
+
+    <script>
+        const updateUTCTime=()=> {
+            const timeElement = document.querySelector('[data-testid="currentTimeUTC"]');
+            const now = new Date();
+            timeElement.textContent = now.toUTCString();
+        }
+        updateUTCTime();
+        setInterval(updateUTCTime(), 1000);
+    </script>
+</body>
+</html>
